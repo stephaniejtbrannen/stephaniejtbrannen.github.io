@@ -162,13 +162,15 @@ li.dropdown.open > ul > li.active > a {
 padding: 20px;
 margin-left: 10px;
 font-size: 48px;
-color:slategrey;
+color: green;
 text-align: center;
 font-size: xx-large;
 }
 
 
 .column ul,
+
+
 
 li {
   padding: 0;
