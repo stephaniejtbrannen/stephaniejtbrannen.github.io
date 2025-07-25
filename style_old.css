@@ -1,0 +1,226 @@
+body {
+  /* display:flex; */
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+  background-image: url("Neon Data Connectivity Visualization.png");
+  overflow:scroll;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: white;
+
+}
+
+.honeycomb ul {
+  width:70vmin;
+  height:70vmin;
+  position:relative;
+  list-style-type: none;
+}
+
+.honeycomb li {
+  /*hexagon w:h = 1.1547 */
+  --h:33.333%;
+  --w:calc(1.1547 * var(--h));
+  height:var(--h);
+  width:var(--w);
+  position:absolute;
+  --a:0.2887 * var(--w);
+  --d:0.4330 * var(--w);
+  /*    a  d        
+       | |___|        ____   _
+        /|    \      /    \   |
+  ang=60_|     \__d_/      \  | h     
+       \       /    \      /  |
+        \____|/|     \____/  _|
+              a     
+       |-------|
+           w = 2*a+d 
+             = 2*(0.5*h/tan60) + (0.5*h/sin60)
+             = (1/tan60 + 0.5/sin60)*h
+             = 1.1547 *h
+  */        
+}
+
+.honeycomb img {
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  clip-path:polygon(
+    28.868% 0,
+    0 50%,
+    28.868% 100%,
+    71.132% 100%,
+    100% 50%,
+    71.132% 0
+  );
+}
+
+li:nth-of-type(1) {
+  left:calc(50% - var(--a) - var(--d) * 0.5);
+  top:0;
+}
+li:nth-of-type(2) {
+  left:calc(50% - var(--a) * 2 - var(--d) * 1.5);
+  top:calc(var(--h) * 0.5);
+}
+li:nth-of-type(3) {
+  left:calc(50% - var(--a) * 2 - var(--d) * 1.5);
+  top:calc(var(--h) * 1.5);
+}
+li:nth-of-type(4) {
+  left:calc(50% - var(--a) - var(--d) * 0.5);
+  top:calc(var(--h) * 2);
+}
+li:nth-of-type(5) {
+  left:calc(50% + var(--d) * 0.5);
+  top:calc(var(--h) * 0.5);
+}
+li:nth-of-type(6) {
+  left:calc(50% + var(--d) * 0.5);
+  top:calc(var(--h) * 1.5);
+}
+
+
+
+/* 
+style 
+*/
+
+.honeycomb ul {
+  filter:drop-shadow(0 0 10px hsla(0,0%,0%,0.8));
+}
+
+.honeycomb li:hover {
+  filter:drop-shadow(0 0 10px powderblue);
+  z-index:10;
+}
+
+/*
+anim
+*/
+
+.honeycomb ul {
+  animation:r 4s forwards;
+} @keyframes r {
+  from {transform:rotate(180deg)}
+  to {transform:rotate(0)}
+}
+
+.honeycomb li {
+  animation:ir 4s forwards;
+} @keyframes ir {
+  from {transform:rotate(-360deg)}
+  to {transform:rotate(0)}
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 4px;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+  flex: 50%;
+  padding: 0 4px;
+}
+
+.column img {
+  display: block;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.column h3 {
+  text-align: center;
+  color: white
+}
+
+.column h1 {
+  text-align: center;
+  font-style: bold;
+  padding: 15px;
+
+}
+
+.column h2 {
+  text-align: center;
+  font-style: bold;
+
+}
+#navcolor a {
+  color: slategrey;
+}
+#navactive {
+color: darkslategrey
+}
+li.dropdown.open > ul > li.active > a {
+}
+
+#Brand{
+padding: 20px;
+margin-left: 10px;
+font-size: 48px;
+color: green;
+text-align: center;
+font-size: xx-large;
+}
+
+
+.column ul,
+
+
+
+li {
+  padding: 0;
+  margin: 0;
+}
+
+.column ul {
+  margin: 2em 0;
+  padding: 50px;
+}
+
+.column h3 {
+  text-align: center;
+}
+.column li {
+  margin: 1em;
+  margin-left: 3em;
+}
+
+.column li:before {
+  content: '\f006';
+  font-family: 'FontAwesome';
+  float: left;
+  margin-left: -1.5em;
+  color: green;
+}
+
+.link {
+  font-size: 0.45em;
+}
+
+.lineup {
+  float: left;
+  width: 33%;
+}
+
+.lineup ul {
+  padding: 5px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+tr:hover {background-color: purple;
+}
